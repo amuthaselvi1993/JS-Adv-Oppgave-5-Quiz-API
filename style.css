@@ -1,0 +1,131 @@
+:root {
+  --font-size-title: 54px;
+  --font-weight-title: 600;
+  --font-weight-topic: 500;
+  --font-weight-questions: 300;
+  --font-size-topic: 28px;
+  --font-size-container: 36px;
+  --font-color: white;
+  --font-color-questions: rgb(91, 88, 88);
+  --font-title: handMadeMandala;
+  --font-questions: "Sour Gummy";
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: handMadeMandala;
+  src: url(Assets/Handmade_Mandala.otf);
+}
+
+body {
+  background-color: rgb(252, 156, 172, 0.7);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+}
+
+h1 {
+  color: white;
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  padding: 1rem;
+  font-family: var(--font-title);
+}
+
+#grid-box-topics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  max-width: 1000px;
+}
+
+#grid-box-topics div:nth-child(3n + 1) {
+  background: linear-gradient(135deg, rgb(220, 181, 237), rgb(135, 126, 235));
+}
+
+#grid-box-topics div:nth-child(3n + 2) {
+  background: linear-gradient(135deg, rgb(210, 245, 253), rgb(35, 191, 225));
+}
+
+#grid-box-topics div:nth-child(3n + 3) {
+  background: linear-gradient(135deg, rgb(255, 212, 172), rgb(255, 150, 2));
+}
+.grid-item {
+  border-radius: 15px;
+  color: var(--font-color);
+  font-family: handMadeMandala;
+  font-size: var(--font-size-topic);
+  font-weight: var(--font-weight-topic);
+  padding: 2em 0.8em;
+  text-align: center;
+  overflow: hidden;
+}
+.grid-item:hover {
+  transform: scale(1.1);
+}
+#questions-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  font-family: var(--font-questions);
+  font-weight: var(--font-weight-questions);
+  font-size: 1.2em;
+}
+.question {
+  /* font-family: var(--font-questions); */
+  display: flex;
+  flex-direction: column;
+}
+.option-text {
+  border: solid 1px gray;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 30px;
+}
+.option-pane {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+.correct-answer {
+  background-color: rgb(1, 179, 1);
+}
+.wrong-answer {
+  background-color: rgb(218, 2, 2);
+}
+.options-disabled {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.6;
+}
+.result-text {
+  padding-bottom: 15px;
+  font-weight: var(--font-weight-topic);
+  color: rgb(61, 61, 161);
+}
+#score-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-weight: var(--font-weight-title);
+  font-size: var(--font-size-title);
+  color: var(--font-color);
+}

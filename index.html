@@ -5,8 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia Game!</title>
     <script src="app.js" defer></script>
-    <link rel="shortcut icon" href="Images/favicon.jpg" type="image/x-icon" />
+    <link rel="shortcut icon" href="Assets/favicon.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <h1>Select a topic to begin</h1>
+    <main>
+      <div id="grid-box-topics">
+        <div class="grid-item" id="random">Random</div>
+        <div class="grid-item" id="sports">Sports</div>
+        <div class="grid-item" id="scienceNature">Science</div>
+        <div class="grid-item" id="computers">Computers</div>
+        <div class="grid-item" id="animals">Animals</div>
+        <div class="grid-item" id="gk">General Knowledge</div>
+      </div>
+      <div id="score-box">Total Score: 0/10</div>
+      <div id="questions-container"></div>
+    </main>
+  </body>
 </html>
