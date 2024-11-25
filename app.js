@@ -103,11 +103,11 @@ function processQuestions(data) {
 }
 function decodeHtmlEntities(input) {
   return input
-    .replace(/&#039;/, "'")
-    .replace(/&amp;/, "&")
-    .replace(/&quot;/, '"')
-    .replace(/&rsquo;/, "'")
-    .replace(/&shy;/, "-");
+    .replaceAll(/&#039;/, "'")
+    .replaceAll(/&amp;/, "&")
+    .replaceAll(/&quot;/, '"')
+    .replaceAll(/&rsquo;/, "'")
+    .replaceAll(/&shy;/, "-");
 }
 function removeOldQuestions() {
   while (questionPanel.firstChild)
