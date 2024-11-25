@@ -56,12 +56,14 @@ function processQuestions(data) {
       const singleQuestionBlock = document.createElement("div");
       singleQuestionBlock.classList.add("question");
       const question = document.createElement("p");
-      question.textContent = he.decode(`${index + 1}. ${item.question}`); //to print question number and then question
-      const correctAnswer = he.decode(item.correct_answer);
+      question.textContent = decodeHtmlEntities(
+        `${index + 1}. ${item.question}`
+      ); //to print question number and then question
+      const correctAnswer = decodeHtmlEntities(item.correct_answer);
       let options = item.incorrect_answers;
       options.push(item.correct_answer);
       console.log(correctAnswer);
-      options.forEach((answer) => he.decode(answer));
+      options.forEach((answer) => decodeHtmlEntities(answer));
       const optionsPane = document.createElement("div");
       optionsPane.classList.add("option-pane");
       const shuffledArray = shuffleArray(options);
@@ -99,7 +101,14 @@ function processQuestions(data) {
     });
   }
 }
-
+function decodeHtmlEntities(input) {
+  return input
+    .replace(/&#039;/, "'")
+    .replace(/&amp;/, "&")
+    .replace(/&quot;/, '"')
+    .replace(/&rsquo;/, "'")
+    .replace(/&shy;/, "-");
+}
 function removeOldQuestions() {
   while (questionPanel.firstChild)
     questionPanel.removeChild(questionPanel.firstChild);
