@@ -87,6 +87,7 @@ h1 {
   /* font-family: var(--font-questions); */
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
 }
 .option-text {
   border: solid 1px gray;
@@ -94,6 +95,7 @@ h1 {
   cursor: pointer;
   text-align: center;
   padding: 10px 30px;
+  overflow: auto;
 }
 .option-pane {
   display: grid;
@@ -103,6 +105,7 @@ h1 {
   justify-content: center;
   align-items: center;
   padding: 20px 0px;
+  max-width: 1000px;
 }
 .correct-answer {
   background-color: rgb(1, 179, 1);
