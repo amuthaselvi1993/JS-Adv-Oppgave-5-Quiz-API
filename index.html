@@ -15,8 +15,18 @@
     />
   </head>
   <body>
-    <h1>Select a topic to begin</h1>
     <main>
+      <h1>Play Trivia!</h1>
+      <p id="instruction">
+        Pick a level below and Click on category to get the questions!
+      </p>
+      <div id="level-picker">
+        <button id="easy" class="level level-picker-selected">Easy</button>
+        <button id="medium" class="level">Medium</button>
+        <button id="hard" class="level">Hard</button>
+      </div>
+    </main>
+    <section>
       <div id="grid-box-topics">
         <div class="grid-item" id="random">Random</div>
         <div class="grid-item" id="sports">Sports</div>
@@ -27,6 +37,6 @@
       </div>
       <div id="score-box">Total Score: 0/10</div>
       <div id="questions-container"></div>
-    </main>
+    </section>
   </body>
 </html>

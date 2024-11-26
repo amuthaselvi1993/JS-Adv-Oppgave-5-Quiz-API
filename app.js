@@ -4,6 +4,7 @@ const baseUrl = "https://opentdb.com/api.php?";
 
 // Select all grid items
 const gridItems = document.querySelectorAll(".grid-item");
+const levelButtons = document.querySelectorAll(".level");
 const questionPanel = document.querySelector("#questions-container");
 let totalScore = 0;
 const scoreBox = document.querySelector("#score-box");
@@ -14,10 +15,27 @@ const category = {
   sports: 21,
   animals: 27,
 };
-// Add a click event listener to each grid item
-gridItems.forEach((item, index) => {
-  item.addEventListener("click", (e) => {
+let complexity = "easy";
+// Add a click event listener to each button in level picker
+levelButtons.forEach((level, index) => {
+  level.addEventListener("click", (e) => {
+    levelButtons.forEach(
+      (level) => level.classList.remove("level-picker-selected")
+      // level.classList.add("level")
+    );
     e.preventDefault();
+    level.classList.add("level-picker-selected");
+    console.log("control here");
+    complexity = level.id;
+  });
+});
+// Add a click event listener to each grid item
+gridItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    gridItems.forEach((item) => item.classList.remove("selected-topic"));
+
+    e.preventDefault();
+    item.classList.add("selected-topic");
     console.log(category[item.id]);
     const numberOfQuestions = 10;
     const difficulty = "easy";
@@ -27,7 +45,9 @@ gridItems.forEach((item, index) => {
     if (category[item.id]) {
       url += `&category=${category[item.id]}`;
     }
-    url += "&difficulty=easy&type=multiple";
+    //append difficulty
+    console.log(complexity);
+    url += `&difficulty=$ {complexity}`;
     getQuestions(url);
   });
 });
@@ -103,11 +123,11 @@ function processQuestions(data) {
 }
 function decodeHtmlEntities(input) {
   return input
-    .replace(/&#039;/, "'")
-    .replace(/&amp;/, "&")
-    .replace(/&quot;/, '"')
-    .replace(/&rsquo;/, "'")
-    .replace(/&shy;/, "-");
+    .replace(/&#039;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&rsquo;/g, "'")
+    .replace(/&shy;/g, "-");
 }
 function removeOldQuestions() {
   while (questionPanel.firstChild)

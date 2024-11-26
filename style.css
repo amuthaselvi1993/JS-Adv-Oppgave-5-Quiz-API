@@ -5,7 +5,7 @@
   --font-weight-questions: 300;
   --font-size-topic: 28px;
   --font-size-container: 36px;
-  --font-color: white;
+  --font-color: rgb(244, 243, 243);
   --font-color-questions: rgb(91, 88, 88);
   --font-title: handMadeMandala;
   --font-questions: "Sour Gummy";
@@ -32,12 +32,19 @@ body {
   word-spacing: 3px;
 }
 
+main {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+main > * {
+  color: var(--font-color);
+  font-family: var(--font-title);
+}
 h1 {
-  color: white;
-  font-size: var(--font-size-title);
   font-weight: var(--font-weight-title);
   padding: 1rem;
-  font-family: var(--font-title);
 }
 
 #grid-box-topics {
@@ -65,15 +72,20 @@ h1 {
 .grid-item {
   border-radius: 15px;
   color: var(--font-color);
-  font-family: handMadeMandala;
+  font-family: var(--font-title);
   font-size: var(--font-size-topic);
   font-weight: var(--font-weight-topic);
   padding: 2em 0.8em;
   text-align: center;
   overflow: hidden;
+  cursor: pointer;
 }
 .grid-item:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.01); */
+  outline: 4px solid var(--font-color);
+}
+.selected-topic {
+  outline: 4px solid var(--font-color);
 }
 #questions-container {
   display: flex;
@@ -132,9 +144,29 @@ h1 {
   font-size: var(--font-size-title);
   color: var(--font-color);
 }
-#random {
-}
-
 #sports {
   background-image: url(Assets/sports.png);
+}
+
+#instruction {
+  font-size: var(--font-size-topic);
+}
+#level-picker {
+  padding-top: 20px;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+.level {
+  border-radius: 15px;
+  border: 1px solid gray;
+  padding: 10px 15px;
+  background-color: azure;
+  color: rgb(63, 63, 63);
+  font-family: var(--font-title);
+  font-size: var(--font-size-topic);
+}
+.level-picker-selected {
+  background-color: rgb(180, 172, 172);
+  color: var(--font-color);
 }
