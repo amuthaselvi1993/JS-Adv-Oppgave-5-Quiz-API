@@ -160,7 +160,7 @@ h1 {
 .level {
   border-radius: 15px;
   border: 1px solid gray;
-  padding: 10px 15px;
+  padding: 10px 40px;
   background-color: azure;
   color: rgb(63, 63, 63);
   font-family: var(--font-title);
@@ -169,4 +169,23 @@ h1 {
 .level-picker-selected {
   background-color: rgb(180, 172, 172);
   color: var(--font-color);
+}
+@media only screen and (max-width: 450px) {
+  #grid-box-topics {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-item {
+    width: 250px;
+    height: 150px;
+    border-radius: 15px;
+    color: var(--font-color);
+    font-family: var(--font-title);
+    font-size: var(--font-size-topic);
+    font-weight: var(--font-weight-topic);
+    padding: 2em 0.8em;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+  }
 }
