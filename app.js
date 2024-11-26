@@ -1,5 +1,5 @@
 const baseUrl = "https://opentdb.com/api.php?";
-//sample url:
+//sample url: 
 // https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=multiple
 
 // Select all grid items
