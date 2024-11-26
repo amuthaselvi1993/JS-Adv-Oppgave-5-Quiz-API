@@ -25,7 +25,6 @@ levelButtons.forEach((level, index) => {
     );
     e.preventDefault();
     level.classList.add("level-picker-selected");
-    console.log("control here");
     complexity = level.id;
   });
 });
@@ -36,7 +35,6 @@ gridItems.forEach((item) => {
 
     e.preventDefault();
     item.classList.add("selected-topic");
-    console.log(category[item.id]);
     const numberOfQuestions = 10;
     const difficulty = "easy";
     const questionType = "multiple";
@@ -46,7 +44,6 @@ gridItems.forEach((item) => {
       url += `&category=${category[item.id]}`;
     }
     //append difficulty
-    console.log(complexity);
     url += `&difficulty=$ {complexity}`;
     getQuestions(url);
   });
@@ -58,12 +55,10 @@ async function getQuestions(url) {
     if (!result.ok) {
       throw new Error("Error occurred while fetching data: " + result.status);
     }
-    // console.log(result);
     const questions = await result.json();
-    console.log(questions);
     processQuestions(questions);
   } catch (error) {
-    console.log("Error occurred: " + error);
+    console.error("Error occurred: " + error);
     //error handling logic to be added here.
   }
 }
@@ -82,7 +77,6 @@ function processQuestions(data) {
       const correctAnswer = decodeHtmlEntities(item.correct_answer);
       let options = item.incorrect_answers;
       options.push(item.correct_answer);
-      console.log(correctAnswer);
       options.forEach((answer) => decodeHtmlEntities(answer));
       const optionsPane = document.createElement("div");
       optionsPane.classList.add("option-pane");
@@ -117,7 +111,6 @@ function processQuestions(data) {
       });
       singleQuestionBlock.append(question, optionsPane);
       questionPanel.append(singleQuestionBlock);
-      console.log(shuffledArray);
     });
   }
 }
