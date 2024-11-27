@@ -1,5 +1,5 @@
 const baseUrl = "https://opentdb.com/api.php?";
-//sample url: 
+//sample url:
 // https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=multiple
 
 // Select all grid items
@@ -116,11 +116,12 @@ function processQuestions(data) {
 }
 function decodeHtmlEntities(input) {
   return input
-    .replace(/&#039;/g, "'")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&rsquo;/g, "'")
-    .replace(/&shy;/g, "-");
+    .replaceAll("&#039;", "'")
+    .replaceAll("&amp;", "&")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&rsquo;", "'")
+    .replaceAll("&shy;", "-")
+    .replaceAll("&oacute;", "ó");
 }
 function removeOldQuestions() {
   while (questionPanel.firstChild)
