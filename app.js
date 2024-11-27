@@ -138,24 +138,22 @@ function shuffleArray(array) {
   }
   return array;
 }
-// Function to display book data for a single book
-function showBook(data) {
-  const bookModal = document.createElement("dialog");
-  bookModal.classList.add("modal");
-  const bookTitle = document.createElement("h2");
-  bookTitle.textContent = data.title;
-  const bookAuthor = document.createElement("p");
-  bookAuthor.textContent = data.authors[0].name;
-  const bookSubjects = document.createElement("p");
-  bookSubjects.textContent = data.subjects[0];
 
-  //appending!
-  bookModal.append(bookTitle, bookAuthor, bookSubjects);
-  document.body.append(bookModal);
-  bookModal.showModal();
-  document.body.addEventListener("click", closeModal);
-  function closeModal() {
-    document.body.removeEventListener("click", closeModal);
-    bookModal.close();
+let toTopButton = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 50px from the top of the document, show the button
+window.onscroll = function () {
+  if (
+    document.body.scrollTop > window.innerHeight ||
+    document.documentElement.scrollTop > window.innerHeight
+  ) {
+    toTopButton.style.top = "90%"; // Button falls down from the top (visible)
+  } else {
+    toTopButton.style.top = "-10%"; // Button moves back up and hides off-screen
   }
-}
+};
+
+// // When the user clicks on the button, scroll to the top of the document
+toTopButton.onclick = function () {
+  window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to the top
+};
