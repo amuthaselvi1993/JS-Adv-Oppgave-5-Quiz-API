@@ -44,7 +44,7 @@ gridItems.forEach((item) => {
       url += `&category=${category[item.id]}`;
     }
     //append difficulty
-    url += `&difficulty=$ {complexity}`;
+    url += `&difficulty=${complexity}`;
     getQuestions(url);
   });
 });
